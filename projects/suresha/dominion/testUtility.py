@@ -63,14 +63,17 @@ def orderSupplies():
 
     return supply_order
 
-#Pick 10 cards from box to be in the supply.
+def chooseCards():
+    #Pick 10 cards from box to be in the supply.
 
-box = getBoxes(nV) ##added this line to get a box from function above
-boxlist = [k for k in box]
-random.shuffle(boxlist)
-random10 = boxlist[:10]
-supply = defaultdict(list,[(k,box[k]) for k in random10])
+    box = getBoxes(nV) ##added this line to get a box from function above
+    boxlist = [k for k in box]
+    random.shuffle(boxlist)
+    random10 = boxlist[:10]
+    supply = defaultdict(list,[(k,box[k]) for k in random10])
+    return supply
 
+supply = chooseCards()
 
 def supplyList():
 
@@ -85,15 +88,18 @@ def supplyList():
 
     return supply
 
-#initialize the trash
-trash = []
+def initTrash():
+    #initialize the trash
+    trash = []
 
-#Costruct the Player objects
-players = []
-for name in player_names:
-    if name[0]=="*":
-        players.append(Dominion.ComputerPlayer(name[1:]))
-    elif name[0]=="^":
-        players.append(Dominion.TablePlayer(name[1:]))
-    else:
-        players.append(Dominion.Player(name))
+def makePlayers():
+    #Costruct the Player objects
+    players = []
+    for name in player_names:
+        if name[0]=="*":
+            players.append(Dominion.ComputerPlayer(name[1:]))
+        elif name[0]=="^":
+            players.append(Dominion.TablePlayer(name[1:]))
+        else:
+            players.append(Dominion.Player(name))
+    return players
