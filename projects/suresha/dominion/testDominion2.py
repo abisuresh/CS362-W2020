@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-Created on Tue Oct 13 15:42:42 2015
-
-@author: Abbi Devins-Suresh
-January 15, 2020
+@author: Abbi Devins-Suresh (based on code from original playDominion.py code)
+Last Modified: January 17, 2020
 """
 
 #Test Scenario: create empty list for list of province cards
