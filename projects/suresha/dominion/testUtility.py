@@ -10,19 +10,23 @@ import Dominion
 import random
 from collections import defaultdict
 
-#Get player names
-player_names = ["Annie","*Ben","*Carla"]
 
-#number of curses and victory cards
-if len(player_names)>2:
-    nV=12
-else:
-    nV=8
-nC = -10 + 10 * len(player_names)
+def getNumCurses(player_names):
+    nC = -10 + 10 * len(player_names)
+    return nC
+
+
+def getNumVictory(player_names):
+    # number of curses and victory cards
+    if len(player_names) > 2:
+        return 12
+    else:
+        return 8
+
 
 #Define function for boxes
 #sample code from assignment page was helpful
-def getBoxes(nV):
+def getBoxes(num_victory):
     #define a box
     box = {}
     box["Woodcutter"]=[Dominion.Woodcutter()]*10
@@ -41,7 +45,7 @@ def getBoxes(nV):
     box["Feast"]=[Dominion.Feast()]*10
     box["Mine"]=[Dominion.Mine()]*10
     box["Library"]=[Dominion.Library()]*10
-    box["Gardens"]=[Dominion.Gardens()]*nV
+    box["Gardens"]=[Dominion.Gardens()]*num_victory
     box["Moat"]=[Dominion.Moat()]*10
     box["Council Room"]=[Dominion.Council_Room()]*10
     box["Witch"]=[Dominion.Witch()]*10
@@ -63,36 +67,32 @@ def orderSupplies():
 
     return supply_order
 
-def chooseCards():
+def buildSupply(player_names, num_victory, num_curses):
     #Pick 10 cards from box to be in the supply.
 
-    box = getBoxes(nV) ##added this line to get a box from function above
+    box = getBoxes(num_victory) ##added this line to get a box from function above
     boxlist = [k for k in box]
     random.shuffle(boxlist)
     random10 = boxlist[:10]
     supply = defaultdict(list,[(k,box[k]) for k in random10])
-    return supply
-
-supply = chooseCards()
-
-def supplyList():
 
     #The supply always has these cards
     supply["Copper"]=[Dominion.Copper()]*(60-len(player_names)*7)
     supply["Silver"]=[Dominion.Silver()]*40
     supply["Gold"]=[Dominion.Gold()]*30
-    supply["Estate"]=[Dominion.Estate()]*nV
-    supply["Duchy"]=[Dominion.Duchy()]*nV
-    supply["Province"]=[Dominion.Province()]*nV
-    supply["Curse"]=[Dominion.Curse()]*nC
+    supply["Estate"]=[Dominion.Estate()]*num_victory
+    supply["Duchy"]=[Dominion.Duchy()]*num_victory
+    supply["Province"]=[Dominion.Province()]*num_victory
+    supply["Curse"]=[Dominion.Curse()]*num_curses
 
     return supply
 
 def initTrash():
     #initialize the trash
     trash = []
+    return trash
 
-def makePlayers():
+def makePlayers(player_names):
     #Costruct the Player objects
     players = []
     for name in player_names:
