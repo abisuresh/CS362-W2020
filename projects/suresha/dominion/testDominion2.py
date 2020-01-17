@@ -6,6 +6,8 @@ Created on Tue Oct 13 15:42:42 2015
 January 15, 2020
 """
 
+#Test Scenario: create empty list for list of province cards
+
 import Dominion
 import random
 from collections import defaultdict
@@ -26,6 +28,7 @@ supply_order = testUtility.orderSupplies()
 # Pick 10 cards from box to be in the supply.
 # The supply always has these cards
 supply = testUtility.buildSupply(player_names, numVictory, numCurses)
+supply["Province"] = []
 
 # initialize the trash
 trash = testUtility.initTrash()
