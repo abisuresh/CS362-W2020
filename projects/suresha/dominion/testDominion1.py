@@ -4,7 +4,7 @@
 Last Modified: January 17, 2020
 """
 
-#Test scenario: 
+#Test scenario:
 
 import Dominion
 import random
