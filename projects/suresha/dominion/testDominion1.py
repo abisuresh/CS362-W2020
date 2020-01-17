@@ -18,6 +18,8 @@ player_names = ["Annie","*Ben","*Carla"]
 numVictory = testUtility.getNumVictory(player_names)
 numCurses = testUtility.getNumCurses(player_names)
 
+numVictory = 0
+
 #Define box
 box = testUtility.getBoxes(numVictory)
 
