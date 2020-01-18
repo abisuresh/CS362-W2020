@@ -12,13 +12,11 @@ from collections import defaultdict
 import testUtility
 
 #Get player names
-player_names = ["Annie","*Ben","*Carla"]
+player_names = ["*Annie","*Ben","*Carla"]
 
 #number of curses and victory cards
 numVictory = testUtility.getNumVictory(player_names)
 numCurses = testUtility.getNumCurses(player_names)
-
-numVictory = 0
 
 #Define box
 box = testUtility.getBoxes(numVictory)
@@ -28,7 +26,7 @@ supply_order = testUtility.orderSupplies()
 #Pick 10 cards from box to be in the supply.
 #The supply always has these cards
 supply =testUtility.buildSupply(player_names, numVictory, numCurses)
-
+supply["Copper"] = [Dominion.Gold()]*len(supply["Copper"])
 
 #initialize the trash
 trash = testUtility.initTrash()
