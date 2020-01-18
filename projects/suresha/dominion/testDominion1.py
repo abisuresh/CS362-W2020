@@ -4,7 +4,7 @@
 Last Modified: January 17, 2020
 """
 
-#Test scenario:
+#Test scenario: Modifying copper supply to point to Gold supply
 
 import Dominion
 import random
@@ -26,6 +26,8 @@ supply_order = testUtility.orderSupplies()
 #Pick 10 cards from box to be in the supply.
 #The supply always has these cards
 supply =testUtility.buildSupply(player_names, numVictory, numCurses)
+
+#modify copper supply (test scenario 1)
 supply["Copper"] = [Dominion.Gold()]*len(supply["Copper"])
 
 #initialize the trash

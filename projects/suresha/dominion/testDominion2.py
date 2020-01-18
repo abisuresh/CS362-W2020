@@ -26,6 +26,8 @@ supply_order = testUtility.orderSupplies()
 # Pick 10 cards from box to be in the supply.
 # The supply always has these cards
 supply = testUtility.buildSupply(player_names, numVictory, numCurses)
+
+#modify province list (test scenario 2) 
 supply["Province"] = []
 
 # initialize the trash
