@@ -12,7 +12,7 @@ from collections import defaultdict
 import testUtility
 
 #Get player names
-player_names = ["*Annie","*Ben","*Carla"]
+player_names = ["Annie","*Ben","*Carla"]
 
 #number of curses and victory cards
 numVictory = testUtility.getNumVictory(player_names)
